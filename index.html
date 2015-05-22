@@ -17,6 +17,7 @@
       <input id="messageText" type="text" value=""></input>
       <button id="sendButton">Send</button>
     </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript">
         var content = document.getElementById('content');
         var socket = new WebSocket('ws://localhost:8066');
@@ -33,7 +34,6 @@
             console.log('WebSocket error: ' + error);
         };
     </script>
-
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>

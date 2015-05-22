@@ -1,4 +1,6 @@
 // Application code here
+var button = document.getElementById('sendButton');
+var message = document.getElementById('messageText');
 
 document.addEventListener("DOMContentLoaded", function(event) {
   documentLoad();
@@ -6,11 +8,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 function documentLoad() {
-    var button = document.getElementById('sendButton');
-    var message = document.getElementById('messageText');
+
 
     button.addEventListener('click', function(event) {
-      socket.send( message.value );
+      sendTextMessage();
     });
 
     setInterval(reloadMessageListing, 1000);
@@ -20,3 +21,15 @@ function documentLoad() {
 function reloadMessageListing() {
   socket.send( '@reload' );
 }
+
+function sendTextMessage() {
+  socket.send( message.value );
+  message.value = '';
+}
+
+
+$("#messageText").keyup(function (e) {
+    if (e.keyCode == 13) {
+      sendTextMessage();
+    }
+});
