@@ -13,15 +13,19 @@
   </head>
   <body>
     <div id="content"></div>
-
+    <div>
+      <input id="messageText" type="text" value=""></input>
+      <button id="sendButton">Send</button>
+    </div>
     <script type="text/javascript">
         var content = document.getElementById('content');
         var socket = new WebSocket('ws://localhost:8066');
         socket.onopen = function () {
-            socket.send('hello from the client');
+            console.log('Socket has been opened');
         };
 
         socket.onmessage = function (message) {
+            content.innerHTML = '';
             content.innerHTML += message.data +'<br />';
         };
 
