@@ -20,3 +20,9 @@ Execute the application
 Original code from:
 
 http://hawkee.com/snippet/16051/
+
+
+Implemented
+--------------
+
+Added bi directional socket between multiple HTML files.
